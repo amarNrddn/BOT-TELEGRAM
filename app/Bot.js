@@ -60,7 +60,7 @@ class MarzkyyBot extends TelegramBot {
         })
     }
 
-    getQuake() {
+    getInformationQuake() {
         const quakeEndpoint = "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"
 
         try {
