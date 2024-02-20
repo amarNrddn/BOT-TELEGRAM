@@ -1,8 +1,17 @@
 const TelegramBot = require("node-telegram-bot-api")
+const listComand = require('./listComand')
 
 class MarzkyyBot extends TelegramBot {
     constructor(token, polling) {
         super(token, polling)
+    }
+
+    getListComand() {
+        this.onText(/^!comand$/, (data) => {
+            const senMesaageList = listComand.map((comand) => `=> ${comand.comand}\n ${comand.des}`).join('\n')
+
+            this.sendMessage(data.from.id, senMesaageList)
+        })
     }
     getSticer() {
         this.on("sticker", (data) => {
@@ -49,9 +58,9 @@ class MarzkyyBot extends TelegramBot {
                     const { title, image, headline } = news
 
                     this.sendPhoto(data.from.id, image, {
-                        caption:`judul: ${title} \n\nHeadline:  ${headline}`
+                        caption: `judul: ${title} \n\nHeadline:  ${headline}`
                     })
-                    
+
                 }
 
             } catch (error) {

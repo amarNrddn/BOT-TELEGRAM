@@ -6,6 +6,7 @@ const polling = { polling: true }
 
 const BotMarzky = new MarzkyyBot(token, polling)
 
+BotMarzky.getListComand()
 BotMarzky.getSticer()
 BotMarzky.getGriting()
 BotMarzky.getFollow()
